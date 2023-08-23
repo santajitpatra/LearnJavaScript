@@ -33,4 +33,21 @@ const size20 = makeTextSizeChangeHandler(20);
 const size52 = makeTextSizeChangeHandler(52);
 const size5 = makeTextSizeChangeHandler(5);
 
-myBtn.addEventListener('click',size12)
+myBtn.addEventListener("click", size12);
+
+// Currying in javascript
+function sendAutoEmail(to) {
+  return function (subject) {
+    return function (body) {
+      console.log(`sent email to ${to} with subject ${subject} body: ${body}`);
+    };
+  };
+}
+// OR by using ES7
+// const sendAutoEmail = to => subject => body => {
+//  console.log(`sent email to ${to} with subject ${subject} body: ${body}`);
+// }
+
+let step1 = sendAutoEmail(`santajitpatra@gmail.com`);
+let step2 = step1(`New email confirmation`);
+step2(`Hello everyone I know you are here`);
