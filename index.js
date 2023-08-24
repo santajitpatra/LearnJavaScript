@@ -95,3 +95,22 @@ const compositionAll =
 
 const task2 = compositionAll(multiplying, square, addNum);
 console.log(task2(2, 5));
+
+// IIFE in javascript
+(()=>console.log("first task"))();
+const atm = function (initalBalance) {
+  let balance = initalBalance;
+  function withdraw(amt) {
+    if (amt > balance) {
+      return "balance not enough"
+    } else {
+      balance -= amt;
+      return balance
+    }
+  }
+  return { withdraw }
+};
+
+const money = atm(1000)
+console.log(money.withdraw(600))
+console.log(money.withdraw(200));
