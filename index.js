@@ -97,20 +97,40 @@ const task2 = compositionAll(multiplying, square, addNum);
 console.log(task2(2, 5));
 
 // IIFE in javascript
-(()=>console.log("first task"))();
+(() => console.log("first task"))();
 const atm = function (initalBalance) {
   let balance = initalBalance;
   function withdraw(amt) {
     if (amt > balance) {
-      return "balance not enough"
+      return "balance not enough";
     } else {
       balance -= amt;
-      return balance
+      return balance;
     }
   }
-  return { withdraw }
+  return { withdraw };
 };
 
-const money = atm(1000)
-console.log(money.withdraw(600))
+const money = atm(1000);
+console.log(money.withdraw(600));
 console.log(money.withdraw(200));
+
+
+
+// Generator Functions in Javascript 
+function* makeMyIterator(start, end, step = 1) {
+  for (let i = start; i <= end; i += step) {
+    yield i;
+  }
+}
+
+const one = makeMyIterator(1, 30, 2);
+
+// for (const val of one) {
+//   console.log(val);
+// }
+
+const nextBtn = document.getElementById("next_btn");
+nextBtn.addEventListener("click", () =>{
+nextBtn.innerText = one.next().value
+})
