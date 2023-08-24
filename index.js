@@ -56,20 +56,42 @@ step2(`Hello everyone I know you are here`);
 function add(a, b) {
   return a + b;
 }
-
-function multiplying(a, b) {
-  return a * b;
+function multiplying(args) {
+  return args[0] * args[1];
 }
-
 function square(value) {
   return value * value;
 }
+function addNum(val) {
+  return val + 2;
+}
 
+//old functions
 function composeTwoFunctions(fun1, fun2) {
   return function (a, b) {
     return fun2(fun1(a, b));
   };
 }
 
-const task = composeTwoFunctions(multiplying , square)
-console.log(2,3)
+//OR ES7 functions
+const C2F = (f1, f2) => (a, b) => f2(f1(a, b));
+
+const task = C2F(add, square);
+console.log(task(2, 3));
+
+// Composition passing multiple functions
+//old functions
+
+function composition(...fns) {
+  return function (...value) {
+    return fns.reduce((a, b) => b(a), value);
+  };
+}
+//OR ES7 functions
+const compositionAll =
+  (...fns) =>
+  (...value) =>
+    fns.reduce((a, b) => b(a), value);
+
+const task2 = compositionAll(multiplying, square, addNum);
+console.log(task2(2, 5));
