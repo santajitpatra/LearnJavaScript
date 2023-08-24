@@ -51,3 +51,25 @@ function sendAutoEmail(to) {
 let step1 = sendAutoEmail(`santajitpatra@gmail.com`);
 let step2 = step1(`New email confirmation`);
 step2(`Hello everyone I know you are here`);
+
+// Composition in Javascript
+function add(a, b) {
+  return a + b;
+}
+
+function multiplying(a, b) {
+  return a * b;
+}
+
+function square(value) {
+  return value * value;
+}
+
+function composeTwoFunctions(fun1, fun2) {
+  return function (a, b) {
+    return fun2(fun1(a, b));
+  };
+}
+
+const task = composeTwoFunctions(multiplying , square)
+console.log(2,3)
