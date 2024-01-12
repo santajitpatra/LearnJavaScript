@@ -15,3 +15,15 @@ function multiplyBy(arg) {
 let multiplyByTwo = multiplyBy(2);
 let res = multiplyByTwo(50);
 console.log(`HOF = ${res}`);
+
+
+function factorial(n) {
+  if (n==0) {
+    return 1;
+  }else{
+    return n * factorial(n-1);
+  }
+}
+
+let result = factorial(5);
+console.log(result);
