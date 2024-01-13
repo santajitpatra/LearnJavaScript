@@ -17,6 +17,8 @@ let res = multiplyByTwo(50);
 console.log(`HOF = ${res}`);
 
 
+
+// factorial with recursion
 function factorial(n) {
   if (n==0) {
     return 1;
@@ -26,4 +28,4 @@ function factorial(n) {
 }
 
 let result = factorial(5);
-console.log(result);
+console.log(`recursion - ${result}`);
