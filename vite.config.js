@@ -12,8 +12,8 @@ export default defineConfig({
 
         //nested component
         nested: resolve(__dirname, "nested/index.html"),
-        cameraShare: resolve(__dirname, "nested/camera-share.html"),
-        screenShare: resolve(__dirname, "nested/screen-share.html"),
+        cameraShare: resolve(__dirname, "/components/camera-share/index.html"),
+        screenShare: resolve(__dirname, "/components/screen-share/index.html"),
       },
     },
   },
